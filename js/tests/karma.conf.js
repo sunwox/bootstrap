@@ -21,6 +21,8 @@ module.exports = (config) => {
     files: [
       jqueryFile,
       'site/docs/4.1/assets/js/vendor/popper.min.js',
+      'node_modules/hammerjs/hammer.min.js',
+      'node_modules/hammer-simulator/index.js',
       'js/coverage/dist/util.js',
       'js/coverage/dist/tooltip.js',
       'js/coverage/dist/!(util|index|tooltip).js', // include all of our js/dist files except util.js, index.js and tooltip.js

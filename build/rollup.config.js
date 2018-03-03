@@ -7,7 +7,7 @@ const BUNDLE  = process.env.BUNDLE === 'true'
 const year    = new Date().getFullYear()
 
 let fileDest  = 'bootstrap.js'
-const external = ['jquery', 'popper.js']
+const external = ['jquery', 'hammerjs', 'popper.js']
 const plugins = [
   babel({
     exclude: 'node_modules/**', // Only transpile our source code
@@ -22,6 +22,7 @@ const plugins = [
 ]
 const globals = {
   jquery: 'jQuery', // Ensure we use jQuery which is always available even in noConflict mode
+  hammerjs: 'Hammer',
   'popper.js': 'Popper'
 }
 

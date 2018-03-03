@@ -43,8 +43,9 @@ Object.keys(bsPlugins)
   .forEach((pluginKey) => {
     console.log(`Building ${pluginKey} plugin...`)
 
-    const external = ['jquery', 'popper.js']
+    const external = ['hammerjs', 'jquery', 'popper.js']
     const globals = {
+      hammerjs: 'Hammer',
       jquery: 'jQuery', // Ensure we use jQuery which is always available even in noConflict mode
       'popper.js': 'Popper'
     }
