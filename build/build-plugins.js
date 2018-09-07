@@ -49,9 +49,11 @@ const defaultPluginConfig = {
     bsPlugins.Data,
     bsPlugins.EventHandler,
     bsPlugins.SelectorEngine,
-    bsPlugins.Util
+    bsPlugins.Util,
+    'delegated-events'
   ],
   globals: {
+    'delegated-events': 'delegated-events',
     [bsPlugins.Data]: 'Data',
     [bsPlugins.EventHandler]: 'EventHandler',
     [bsPlugins.SelectorEngine]: 'SelectorEngine',

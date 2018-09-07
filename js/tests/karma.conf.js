@@ -23,6 +23,8 @@ module.exports = (config) => {
       'site/docs/4.1/assets/js/vendor/popper.min.js',
       'js/coverage/dist/util.js',
       'js/coverage/dist/dom/polyfill.js',
+      'node_modules/selector-set/selector-set.js',
+      'node_modules/delegated-events/dist/index.umd.js',
       'js/coverage/dist/dom/eventHandler.js',
       'js/coverage/dist/dom/selectorEngine.js',
       'js/coverage/dist/dom/data.js',

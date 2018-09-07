@@ -45,7 +45,7 @@ $(function () {
     var $alert = $(alertHTML).bootstrapAlert().appendTo($('#qunit-fixture'))
 
     var closeBtn = $alert.find('.close')[0]
-    closeBtn.dispatchEvent(new Event('click'))
+    closeBtn.click()
     assert.strictEqual($alert.hasClass('show'), false, 'remove .show class on .close click')
   })
 
@@ -66,7 +66,7 @@ $(function () {
     })
 
     var closeBtn = $alert.find('.close')[0]
-    closeBtn.dispatchEvent(new Event('click'))
+    closeBtn.click()
   })
 
   QUnit.test('should not fire closed when close is prevented', function (assert) {

@@ -9,6 +9,56 @@ import Util from '../util'
 
 /* istanbul ignore next */
 const Polyfill = (() => {
+  if (typeof WeakMap === 'undefined') {
+    const counter = Date.now() % 1e9
+
+    class WeakMapEs6 {
+      constructor() {
+        this.name = Util.getUID('weakMap_')
+      }
+
+      set(key, value) {
+        const entry = key[this.name]
+
+        if (entry && entry[0] === key) {
+          entry[1] = value;
+        } else {
+          Object.defineProperty(key, this.name, {value: [key, value], writable: true})
+        }
+
+        return this
+      }
+
+      get(key) {
+        const entry = key[this.name]
+        return entry[0] === key ? entry[1] : undefined
+      }
+
+      delete(key) {
+        const entry = key[this.name]
+
+        if (this.has(key)) {
+          entry[0] = entry[1] = undefined;
+          return true
+        }
+
+        return false
+      }
+
+      has(key) {
+        const entry = key[this.name]
+
+        if (!entry) {
+          return false
+        }
+
+        return entry[0] === key
+      }
+    }
+
+    window.WeakMap = WeakMapEs6
+  }
+
   // defaultPrevented is broken in IE
   const workingDefaultPrevented = (() => {
     const e = document.createEvent('CustomEvent')

@@ -7,7 +7,7 @@ const BUNDLE  = process.env.BUNDLE === 'true'
 const year    = new Date().getFullYear()
 
 let fileDest  = 'bootstrap.js'
-const external = ['jquery', 'popper.js']
+const external = ['popper.js']
 const plugins = [
   babel({
     exclude: 'node_modules/**', // Only transpile our source code
@@ -18,7 +18,8 @@ const plugins = [
       'defineProperty',
       'objectSpread'
     ]
-  })
+  }),
+  resolve()
 ]
 const globals = {
   'popper.js': 'Popper'
@@ -29,7 +30,6 @@ if (BUNDLE) {
   // Remove last entry in external array to bundle Popper
   external.pop()
   delete globals['popper.js']
-  plugins.push(resolve())
 }
 
 module.exports = {
